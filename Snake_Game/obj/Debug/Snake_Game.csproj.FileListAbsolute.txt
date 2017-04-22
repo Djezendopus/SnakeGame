@@ -1,0 +1,12 @@
+D:\Учеба\Универ\Программирование\ExactPro\Snake_Game\Snake_Game\bin\Debug\Snake_Game.exe.config
+D:\Учеба\Универ\Программирование\ExactPro\Snake_Game\Snake_Game\bin\Debug\Snake_Game.exe
+D:\Учеба\Универ\Программирование\ExactPro\Snake_Game\Snake_Game\bin\Debug\Snake_Game.pdb
+D:\Учеба\Универ\Программирование\ExactPro\Snake_Game\Snake_Game\obj\Debug\Snake_Game.csprojResolveAssemblyReference.cache
+D:\Учеба\Универ\Программирование\ExactPro\Snake_Game\Snake_Game\obj\Debug\Snake_Game.Properties.Resources.resources
+D:\Учеба\Универ\Программирование\ExactPro\Snake_Game\Snake_Game\obj\Debug\Snake_Game.csproj.GenerateResource.Cache
+D:\Учеба\Универ\Программирование\ExactPro\Snake_Game\Snake_Game\obj\Debug\Snake_Game.exe
+D:\Учеба\Универ\Программирование\ExactPro\Snake_Game\Snake_Game\obj\Debug\Snake_Game.pdb
+D:\Учеба\Универ\Программирование\ExactPro\Snake_Game\Snake_Game\bin\Debug\SnakeLibrary.dll
+D:\Учеба\Универ\Программирование\ExactPro\Snake_Game\Snake_Game\bin\Debug\SnakeLibrary.pdb
+D:\Учеба\Универ\Программирование\ExactPro\Snake_Game\Snake_Game\obj\Debug\Snake_Game.GameForm.resources
+D:\Учеба\Универ\Программирование\ExactPro\Snake_Game\Snake_Game\obj\Debug\Snake_Game.InputNameForm.resources
