@@ -78,6 +78,7 @@
             this.начатьЗановоToolStripMenuItem.Name = "начатьЗановоToolStripMenuItem";
             this.начатьЗановоToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.начатьЗановоToolStripMenuItem.Text = "Начать заново";
+            this.начатьЗановоToolStripMenuItem.Click += new System.EventHandler(this.начатьЗановоToolStripMenuItem_Click);
             // 
             // настройкиToolStripMenuItem
             // 

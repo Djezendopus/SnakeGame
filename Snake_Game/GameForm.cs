@@ -103,8 +103,14 @@ namespace Snake_Game
             }
             else if (e.KeyCode == settings.Controls.RestartKey)
             {
-                PauseGame();
-                if (MessageBox.Show("Вы уверены, что хотите выйти из игры?", "Выход", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                if (!lbl_gameOver.Visible)
+                {
+                    if (!lbl_pause.Visible)
+                        PauseGame();
+                    if (MessageBox.Show("Вы уверены, что хотите начать игру заново?", "Заново", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                        RestartGame();
+                }
+                else
                     RestartGame();
             }
         }
@@ -156,7 +162,6 @@ namespace Snake_Game
         {
             CheckDirection();
             snake.Move();
-
             //Проверяем змейку на столкновение с границами.
             if (snake[0].X < 0 ||
                 snake[0].Y < 0 ||
@@ -173,6 +178,11 @@ namespace Snake_Game
                         break;
                     }
             }
+
+            //Если игра не окончена - перерисовываем игровое поле
+            if (!lbl_gameOver.Visible)
+                pb_GameField.Invalidate();
+
             //Проверяем, съела ли змейка еду в этой клетке.
             if (snake[0].X == food.X && snake[0].Y == food.Y)
                 Eat();
@@ -276,10 +286,7 @@ namespace Snake_Game
         private void gameTimer_Tick(object sender, EventArgs e)
         {
             if (!lbl_gameOver.Visible)
-            {
                 MovePlayer();
-                pb_GameField.Invalidate();
-            }
         }
 
         /// <summary>
@@ -330,11 +337,18 @@ namespace Snake_Game
         }
 
         #region Взаимодействие с меню.
+        private void начатьЗановоToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PauseGame();
+            RestartGame();
+        }
+
         private void выйтиToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Вы уверены, что хотите выйти из игры?", "Выход", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 this.Dispose();            
         }
+        #endregion
         #endregion
     }
 }
