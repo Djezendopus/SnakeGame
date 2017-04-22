@@ -93,16 +93,19 @@ namespace Snake_Game
         /// </summary>
         int speed;
         /// <summary>
-        /// Свойство, возвращающее/задающее значение скорости змейки.
+        /// Свойство, возвращающее значение скорости змейки.
         /// Значение скорости находится в пределах от 1 до 10.
         /// </summary>
         public int Speed
         {
             get { return speed / 4; }
-            set
+            internal set
             {
                 if (value >= 1 && value <= 10)
+                {
                     speed = value * 4;
+                    points = Speed * 10;
+                }
                 else
                     throw new ArgumentOutOfRangeException("Значение скорости должно находится в пределах от 1 до 10");
             }
@@ -135,8 +138,7 @@ namespace Snake_Game
         {
             Grid = true;
             Size = 2;
-            Speed = 5;
-            Points = 100;
+            Speed = 5;            
             controls = new GameControls();
         }
         #endregion
@@ -160,7 +162,7 @@ namespace Snake_Game
         public void IncreaceSpeed()
         {
             if (Speed < 10)
-                speed += 4;
+                Speed++;
         }
 
         /// <summary>
@@ -169,7 +171,7 @@ namespace Snake_Game
         public void ReduceSpeed()
         {
             if (Speed > 1)
-                speed -= 4;
+                Speed--;
         }
         #endregion
     }
