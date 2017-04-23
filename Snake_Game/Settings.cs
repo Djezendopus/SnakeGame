@@ -11,7 +11,7 @@ namespace Snake_Game
     /// Класс, описывающий параметры игры.
     /// </summary>
     [Serializable]
-    class Settings
+    public class Settings
     {
         #region Поля и свойства.
         /// <summary>

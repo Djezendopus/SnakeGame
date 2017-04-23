@@ -68,10 +68,10 @@ namespace Snake_Game
             lbl_params.Text = settings.ToString();
             lbl_controls.Text = settings.Controls.ToString();
             lbl_pause.Text = "Игра приостановлена." +
-                             "\nНажмите \"" + settings.Controls.PauseKey.ToString() + "\"" +
+                             "\nНажмите \"" + settings.Controls.Pause.Key.ToString() + "\"" +
                              "\nчтобы продолжить.";
             lbl_gameOver.Text = "Чтобы начать игру," +
-                                "\nнажмите \"" + settings.Controls.RestartKey.ToString() + "\"";
+                                "\nнажмите \"" + settings.Controls.Restart.Key.ToString() + "\"";
         }
         #endregion
 
@@ -83,34 +83,34 @@ namespace Snake_Game
         /// <param name="e"></param>
         private void GameForm_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == settings.Controls.UpKey ||
-                e.KeyCode == settings.Controls.DownKey ||
-                e.KeyCode == settings.Controls.LeftKey ||
-                e.KeyCode == settings.Controls.RightKey && snake.Direction != Direction.Left)
+            if (e.KeyCode == settings.Controls.Up.Key ||
+                e.KeyCode == settings.Controls.Down.Key ||
+                e.KeyCode == settings.Controls.Left.Key ||
+                e.KeyCode == settings.Controls.Right.Key && snake.Direction != Direction.Left)
             {
                 nextDirectionKey = e.KeyCode;
             }
-            else if (e.KeyCode == settings.Controls.IncreaseSpeedKey)
+            else if (e.KeyCode == settings.Controls.IncreaseSpeed.Key)
             {
                 settings.IncreaceSpeed();
                 gameTimer.Interval = 1000 / settings.GetSnakeSpeed;
                 lbl_params.Text = settings.ToString();
             }
-            else if (e.KeyCode == settings.Controls.ReduceSpeedKey)
+            else if (e.KeyCode == settings.Controls.ReduceSpeed.Key)
             {
                 settings.ReduceSpeed();
                 gameTimer.Interval = 1000 / settings.GetSnakeSpeed;
                 lbl_params.Text = settings.ToString();
             }
-            else if (e.KeyCode == settings.Controls.GridDrawKey)
+            else if (e.KeyCode == settings.Controls.GridDraw.Key)
             {
                 ChangeGrid();
             }
-            else if (e.KeyCode == settings.Controls.PauseKey)
+            else if (e.KeyCode == settings.Controls.Pause.Key)
             {
                 PauseGame();
             }
-            else if (e.KeyCode == settings.Controls.RestartKey)
+            else if (e.KeyCode == settings.Controls.Restart.Key)
             {
                 //Если игра не остановлена.
                 if (!lbl_gameOver.Visible)
@@ -142,7 +142,7 @@ namespace Snake_Game
             snake = new Snake(pb_GameField.Size.Width / settings.GetSquareSize / 2, pb_GameField.Size.Height / settings.GetSquareSize / 2);
             for (int i = 1; i < 4; i++)
                 snake.Increase();
-            //snake.Elements.Add(new SnakeGameElement(snake[0].X, snake[0].Y + i * settings.GetSquareSize));
+                //snake.Elements.Add(new SnakeGameElement(snake[0].X, snake[0].Y + i * settings.GetSquareSize));
             GenerateFood();
             pb_GameField.Invalidate();
             lbl_score.Text = "" + score;
@@ -170,7 +170,7 @@ namespace Snake_Game
 
             lbl_gameOver.Text = "Игра окончена!" +
                 "\nЧтобы начать заново," +
-                "\nнажмите \"" + settings.Controls.RestartKey.ToString() + "\".";
+                "\nнажмите \"" + settings.Controls.Restart.Key.ToString() + "\".";
 
             lbl_gameOver.Visible = true;
         }
@@ -213,19 +213,19 @@ namespace Snake_Game
         /// </summary>
         void CheckDirection()
         {
-            if (nextDirectionKey == settings.Controls.UpKey && snake.Direction != Direction.Down)
+            if (nextDirectionKey == settings.Controls.Up.Key && snake.Direction != Direction.Down)
             {
                 snake.Direction = Direction.Up;
             }
-            else if (nextDirectionKey == settings.Controls.DownKey && snake.Direction != Direction.Up)
+            else if (nextDirectionKey == settings.Controls.Down.Key && snake.Direction != Direction.Up)
             {
                 snake.Direction = Direction.Down;
             }
-            else if (nextDirectionKey == settings.Controls.LeftKey && snake.Direction != Direction.Right)
+            else if (nextDirectionKey == settings.Controls.Left.Key && snake.Direction != Direction.Right)
             {
                 snake.Direction = Direction.Left;
             }
-            else if (nextDirectionKey == settings.Controls.RightKey && snake.Direction != Direction.Left)
+            else if (nextDirectionKey == settings.Controls.Right.Key && snake.Direction != Direction.Left)
             {
                 snake.Direction = Direction.Right;
             }
@@ -242,7 +242,7 @@ namespace Snake_Game
                 lbl_score.Text = "" + score;
                 lbl_gameOver.Text = "Поздравляем! Вы прошли игру!" +
                 "\nЧтобы начать заново," +
-                "\nнажмите \"" + settings.Controls.RestartKey.ToString() + "\".";
+                "\nнажмите \"" + settings.Controls.Restart.Key.ToString() + "\".";
                 lbl_gameOver.Visible = true;
             }
             else
@@ -391,7 +391,7 @@ namespace Snake_Game
             }
         }
 
-        private void выйтиToolStripMenuItem_Click(object sender, EventArgs e)
+        private void выходToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Вы уверены, что хотите выйти из игры?", "Выход", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 this.Dispose();
@@ -419,7 +419,7 @@ namespace Snake_Game
 
                     gameTimer.Stop();
                     lbl_gameOver.Text = "Чтобы начать игру," +
-                                        "\nнажмите \"" + settings.Controls.RestartKey.ToString() + "\"";
+                                        "\nнажмите \"" + settings.Controls.Restart.Key.ToString() + "\"";
                     lbl_gameOver.Visible = true;
                     lbl_pause.Visible = false;
                     snake = null;
@@ -449,10 +449,11 @@ namespace Snake_Game
             ChangeGrid();
         }
 
-        private void выходToolStripMenuItem_Click(object sender, EventArgs e)
+        private void управлениеToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Вы уверены, что хотите выйти из игры?", "Выход", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                this.Dispose();
+            GameControlsForm gameControls = new GameControlsForm(settings.Controls);
+            gameControls.Owner = this;
+            gameControls.ShowDialog();
         }
         #endregion
         #endregion

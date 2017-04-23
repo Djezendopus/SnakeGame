@@ -32,7 +32,7 @@ namespace Snake_Game
         {
             this.components = new System.ComponentModel.Container();
             this.btn_OK = new System.Windows.Forms.Button();
-            this.label = new System.Windows.Forms.Label();
+            this.lbl_head = new System.Windows.Forms.Label();
             this.tBox_Name = new System.Windows.Forms.TextBox();
             this.toolTip_tBox_Name = new System.Windows.Forms.ToolTip(this.components);
             this.btn_Cancel = new System.Windows.Forms.Button();
@@ -48,18 +48,18 @@ namespace Snake_Game
             this.btn_OK.UseVisualStyleBackColor = true;
             this.btn_OK.Click += new System.EventHandler(this.btn_Confrime_Click);
             // 
-            // label
+            // lbl_head
             // 
-            this.label.AutoSize = true;
-            this.label.BackColor = System.Drawing.Color.Transparent;
-            this.label.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label.ForeColor = System.Drawing.Color.Black;
-            this.label.Location = new System.Drawing.Point(6, 9);
-            this.label.Name = "label";
-            this.label.Size = new System.Drawing.Size(150, 24);
-            this.label.TabIndex = 0;
-            this.label.Text = "Введите имя:";
-            this.label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_head.AutoSize = true;
+            this.lbl_head.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_head.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbl_head.ForeColor = System.Drawing.Color.Black;
+            this.lbl_head.Location = new System.Drawing.Point(6, 9);
+            this.lbl_head.Name = "lbl_head";
+            this.lbl_head.Size = new System.Drawing.Size(150, 24);
+            this.lbl_head.TabIndex = 0;
+            this.lbl_head.Text = "Введите имя:";
+            this.lbl_head.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tBox_Name
             // 
@@ -90,7 +90,7 @@ namespace Snake_Game
             this.ControlBox = false;
             this.Controls.Add(this.btn_Cancel);
             this.Controls.Add(this.tBox_Name);
-            this.Controls.Add(this.label);
+            this.Controls.Add(this.lbl_head);
             this.Controls.Add(this.btn_OK);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "InputNameForm";
@@ -105,7 +105,7 @@ namespace Snake_Game
         #endregion
 
         private System.Windows.Forms.Button btn_OK;
-        private System.Windows.Forms.Label label;
+        private System.Windows.Forms.Label lbl_head;
         private System.Windows.Forms.TextBox tBox_Name;
         private System.Windows.Forms.ToolTip toolTip_tBox_Name;
         private Button btn_Cancel;

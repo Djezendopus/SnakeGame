@@ -8,48 +8,56 @@ using System.Windows.Forms;
 namespace Snake_Game
 {
     /// <summary>
-    /// Класс, описывающий клавиши управления игрой.
+    /// Класс, описывающий управление действиями игры.
     /// </summary>
     [Serializable]
-    class GameControls
+    public class GameControls
     {
         #region Поля и свойства.
         /// <summary>
-        /// Клавиша для задания направления змейки вверх.
+        /// Изменение направления движения змейки вверх.        
         /// </summary>
-        public Keys UpKey { get; set; }
+        public GameAction Up { get; }
+
         /// <summary>
-        /// Клавиша для задания направления змейки вниз.
+        /// Изменение направления движения змейки вниз.
         /// </summary>
-        public Keys DownKey { get; set; }
+        public GameAction Down { get; }
+
         /// <summary>
-        /// Клавиша для задания направления змейки влево.
+        /// Изменение направления движения змейки влево.
         /// </summary>
-        public Keys LeftKey { get; set; }
+        public GameAction Left { get; }
+
         /// <summary>
-        /// Клавиша для включения/выключения сетки на игровом поле.
+        /// Кортеж, описывающий задание направления змейки вправо.
         /// </summary>
-        public Keys GridDrawKey { get; set; }
+        public GameAction Right { get; }
+
         /// <summary>
-        /// Клавиша для задания направления змейки вправо.
+        /// Включение/выключение сетки на игровом поле.
         /// </summary>
-        public Keys RightKey { get; set; }
+        public GameAction GridDraw { get; }
+
         /// <summary>
-        /// Клавиша для паузы игры.
+        /// Прерывание/продолжение игры.
         /// </summary>
-        public Keys PauseKey { get; set; }
+        public GameAction Pause { get; }
+
         /// <summary>
-        /// Клавиша для перезапуска игры.
+        /// Перезапуск игры.
         /// </summary>
-        public Keys RestartKey { get; set; }
+        public GameAction Restart { get; }
+
         /// <summary>
-        /// Клавиша для увеличения скорости змейки.
+        /// Увеличение скорости змейки.
         /// </summary>
-        public Keys IncreaseSpeedKey { get; set; }
+        public GameAction IncreaseSpeed { get; }
+
         /// <summary>
-        /// Клавиша для уменьшения скорости змейки.
+        /// Уменьшение скорости змейки.
         /// </summary>
-        public Keys ReduceSpeedKey { get; set; }
+        public GameAction ReduceSpeed { get; }
         #endregion
 
         #region Конструкторы.
@@ -58,15 +66,15 @@ namespace Snake_Game
         /// </summary>
         public GameControls()
         {
-            UpKey = Keys.Up;
-            DownKey = Keys.Down;
-            LeftKey = Keys.Left;
-            RightKey = Keys.Right;
-            GridDrawKey = Keys.G;
-            PauseKey = Keys.Space;
-            RestartKey = Keys.Enter;
-            IncreaseSpeedKey = Keys.ShiftKey;
-            ReduceSpeedKey = Keys.ControlKey;
+            Up = new GameAction("Вверх", Keys.Up);
+            Down = new GameAction("Вниз", Keys.Down);
+            Left = new GameAction("Влево", Keys.Left);
+            Right = new GameAction("Вправо", Keys.Right);
+            GridDraw = new GameAction("Сетка", Keys.G);
+            Pause = new GameAction("Пауза", Keys.Space);
+            Restart = new GameAction("Рестарт", Keys.Enter);
+            IncreaseSpeed = new GameAction("Быстрее", Keys.ShiftKey);
+            ReduceSpeed = new GameAction("Медленнее", Keys.ControlKey);
         }
         #endregion
 
@@ -77,15 +85,32 @@ namespace Snake_Game
         /// <returns>Строковое представление клавиш управления игрой.</returns>
         public override string ToString()
         {
-            return "Вверх: " + UpKey.ToString() +
-                   "\nВниз: " + DownKey.ToString() +
-                   "\nВлево: " + LeftKey.ToString() +
-                   "\nВправо: " + RightKey.ToString() +
-                   "\nСетка: " + GridDrawKey.ToString() +
-                   "\nПауза: " + PauseKey.ToString() +
-                   "\nРестарт: " + RestartKey.ToString() +
-                   "\nБыстрее: " + IncreaseSpeedKey.ToString() +
-                   "\nМедленнее: " + ReduceSpeedKey.ToString();
+            return Up.ToString()            + "\n" +
+                   Down.ToString()          + "\n" +
+                   Left.ToString()          + "\n" +
+                   Right.ToString()         + "\n" +
+                   GridDraw.ToString()      + "\n" +
+                   Pause.ToString()         + "\n" +
+                   Restart.ToString()       + "\n" +
+                   IncreaseSpeed.ToString() + "\n" +
+                   ReduceSpeed.ToString();
+        }
+
+        /// <summary>
+        /// Копирует все значения управляющих клавиш sourceControls в текущий экземпляр класса <see cref="GameControls"/>.
+        /// </summary>
+        /// <param name="sourceControls">Копируемый экземпляр класса <see cref="GameControls"/>.</param>
+        public void Copy(GameControls sourceControls)
+        {
+            Up.ChangeKey            (sourceControls.Up.Key);
+            Down.ChangeKey          (sourceControls.Down.Key);
+            Left.ChangeKey          (sourceControls.Left.Key);
+            Right.ChangeKey         (sourceControls.Right.Key);
+            GridDraw.ChangeKey      (sourceControls.GridDraw.Key);
+            Pause.ChangeKey         (sourceControls.Pause.Key);
+            Restart.ChangeKey       (sourceControls.Restart.Key);
+            IncreaseSpeed.ChangeKey (sourceControls.IncreaseSpeed.Key);
+            ReduceSpeed.ChangeKey   (sourceControls.ReduceSpeed.Key);
         }
         #endregion
     }
