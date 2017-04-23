@@ -22,3 +22,4 @@ D:\Учеба\ExactPro\Snake_Game\Snake_Game\obj\Debug\Snake_Game.GameForm.resou
 D:\Учеба\ExactPro\Snake_Game\Snake_Game\obj\Debug\Snake_Game.InputNameForm.resources
 D:\Учеба\ExactPro\Snake_Game\Snake_Game\obj\Debug\Snake_Game.Properties.Resources.resources
 D:\Учеба\ExactPro\Snake_Game\Snake_Game\obj\Debug\Snake_Game.csproj.GenerateResource.Cache
+D:\Учеба\ExactPro\Snake_Game\Snake_Game\obj\Debug\Snake_Game.ScoreTableForm.resources

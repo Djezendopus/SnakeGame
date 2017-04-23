@@ -1,9 +1,0 @@
-<?xml version="1.0"?>
-<Settings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <PlayerName>Djezendopus</PlayerName>
-  <Controls />
-  <Grid>false</Grid>
-  <Size>1</Size>
-  <Speed>2</Speed>
-  <Points>20</Points>
-</Settings>

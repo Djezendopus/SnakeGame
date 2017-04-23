@@ -13,6 +13,9 @@ using SnakeLibrary;
 
 namespace Snake_Game
 {
+    /// <summary>
+    /// Основная форма игры.
+    /// </summary>
     public partial class GameForm : Form
     {
         #region Поля и свойства.
@@ -191,6 +194,106 @@ namespace Snake_Game
                 "\nнажмите \"" + settings.Controls.Restart.Key.ToString() + "\".";
 
             lbl_gameOver.Visible = true;
+
+            if (score != 0)
+                AddToScoreList();
+        }
+
+        /// <summary>
+        /// Добавить результат игрока в таблицу рекордов.
+        /// </summary>
+        void AddToScoreList()
+        {
+            List<string[]> scores;
+            XmlSerializer serializer = new XmlSerializer(typeof(List<string[]>));
+
+            //Попытка чтения таблицы рекордов
+            if (File.Exists("scores.xml"))
+            {
+                FileStream stream = new FileStream("scores.xml", FileMode.Open);
+                try
+                {
+                    scores = (List<string[]>)serializer.Deserialize(stream);
+                    stream.Close();
+                }
+                catch
+                {
+                    stream.Close();
+
+                    //Создание пустой таблицы рекордов
+                    scores = new List<string[]>();
+                    for (int i = 0; i < 10; i++)
+                        scores.Add(new string[2]);
+                }
+            }
+            else
+            {
+                //Создание пустой таблицы рекордов
+                scores = new List<string[]>();
+                for (int i = 0; i < 10; i++)
+                    scores.Add(new string[2]);
+            }
+
+            //При необходимости - записываем текущий результат в таблицу рекордов
+            bool recorded = false;//Записано ли значение в таблицу
+
+            foreach (var v in scores)
+            {
+                if (v[0] == null)
+                {
+                    v[0] = settings.PlayerName;
+                    v[1] = "" + score;
+                    recorded = true;
+                    break;
+                }
+
+                if (v[0] == settings.PlayerName)
+                {
+                    if (score > int.Parse(v[1]))
+                        v[1] = "" + score;
+                    recorded = true;
+                    break;
+                }
+            }
+
+            if (!recorded)
+            {
+                for (int i = scores.Count - 1; i >= 0; i--)
+                    if (scores[i][0] != null && score > int.Parse(scores[i][0]))
+                    {
+                        scores.RemoveAt(scores.Count - 1);
+                        scores.Insert(i, new string[] { settings.PlayerName, "" + score });
+                        recorded = true;
+                    }
+            }
+
+            //Если запись была произведена - сериализуем таблицу
+            if (recorded)
+            {
+                //Сортируем полученную таблицу по результату
+                string tmp1, tmp2;
+                for (int i = 0; i < scores.Count - 1; i++)
+                {
+                    for (int j = i + 1; j < scores.Count; j++)
+                    {
+                        if (scores[i][1] != null &&
+                            scores[j][1] != null &&
+                            int.Parse(scores[i][1]) < int.Parse(scores[j][1]))
+                        {
+                            tmp1 = scores[i][0];
+                            tmp2 = scores[i][1];
+                            scores[i][0] = scores[j][0];
+                            scores[i][1] = scores[j][1];
+                            scores[j][0] = tmp1;
+                            scores[j][1] = tmp2;
+                        }
+                    }
+                }
+                File.Delete("scores.xml");
+                FileStream stream = new FileStream("scores.xml", FileMode.Create);
+                serializer.Serialize(stream, scores);
+                stream.Close();
+            }
         }
 
         /// <summary>
@@ -407,6 +510,13 @@ namespace Snake_Game
             ChangeName();
         }
 
+        private void рекордыToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ScoreTableForm scoreTable = new ScoreTableForm();
+            scoreTable.Owner = this;
+            scoreTable.ShowDialog();
+        }
+
         private void выходToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -489,7 +599,8 @@ namespace Snake_Game
             {
                 //Сохраняем текущие настройки
                 XmlSerializer serializer = new XmlSerializer(typeof(Settings));
-                FileStream stream = new FileStream("settings.xml", FileMode.OpenOrCreate);
+                File.Delete("settings.xml");
+                FileStream stream = new FileStream("settings.xml", FileMode.Create);
                 serializer.Serialize(stream, settings);
                 stream.Close();
             }
