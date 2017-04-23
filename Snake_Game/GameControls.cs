@@ -27,6 +27,10 @@ namespace Snake_Game
         /// </summary>
         public Keys LeftKey { get; set; }
         /// <summary>
+        /// Клавиша для включения/выключения сетки на игровом поле.
+        /// </summary>
+        public Keys GridDrawKey { get; set; }
+        /// <summary>
         /// Клавиша для задания направления змейки вправо.
         /// </summary>
         public Keys RightKey { get; set; }
@@ -58,10 +62,11 @@ namespace Snake_Game
             DownKey = Keys.Down;
             LeftKey = Keys.Left;
             RightKey = Keys.Right;
+            GridDrawKey = Keys.G;
             PauseKey = Keys.Space;
             RestartKey = Keys.Enter;
-            IncreaseSpeedKey = Keys.PageUp;
-            ReduceSpeedKey = Keys.PageDown;
+            IncreaseSpeedKey = Keys.ShiftKey;
+            ReduceSpeedKey = Keys.ControlKey;
         }
         #endregion
 
@@ -76,6 +81,7 @@ namespace Snake_Game
                    "\nВниз: " + DownKey.ToString() +
                    "\nВлево: " + LeftKey.ToString() +
                    "\nВправо: " + RightKey.ToString() +
+                   "\nСетка: " + GridDrawKey.ToString() +
                    "\nПауза: " + PauseKey.ToString() +
                    "\nРестарт: " + RestartKey.ToString() +
                    "\nБыстрее: " + IncreaseSpeedKey.ToString() +

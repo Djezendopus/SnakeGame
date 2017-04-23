@@ -136,7 +136,7 @@ namespace Snake_Game
         /// </summary>
         public Settings()
         {
-            Grid = true;
+            Grid = false;
             Size = 2;
             Speed = 5;            
             controls = new GameControls();

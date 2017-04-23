@@ -65,7 +65,8 @@ namespace Snake_Game
             lbl_params.Text = settings.ToString();
             lbl_controls.Text = settings.Controls.ToString();
 
-            lbl_gameOver.Text = "Чтобы начать игру,\nнажмите \"" + settings.Controls.RestartKey.ToString() + "\"";
+            lbl_gameOver.Text = "Чтобы начать игру," + 
+                                "\nнажмите \"" + settings.Controls.RestartKey.ToString() + "\"";
             lbl_gameOver.Visible = true;
         }
         #endregion
@@ -97,14 +98,20 @@ namespace Snake_Game
                 gameTimer.Interval = 1000 / settings.GetSnakeSpeed;
                 lbl_params.Text = settings.ToString();
             }
+            else if (e.KeyCode == settings.Controls.GridDrawKey)
+            {
+                ChangeGrid();
+            }
             else if (e.KeyCode == settings.Controls.PauseKey)
             {
                 PauseGame();
             }
             else if (e.KeyCode == settings.Controls.RestartKey)
             {
+                //Если игра не остановлена.
                 if (!lbl_gameOver.Visible)
                 {
+                    //Ставим игру на паузу.
                     if (!lbl_pause.Visible)
                         PauseGame();
                     if (MessageBox.Show("Вы уверены, что хотите начать игру заново?", "Заново", MessageBoxButtons.YesNo) == DialogResult.Yes)
@@ -120,12 +127,20 @@ namespace Snake_Game
         /// </summary>
         void RestartGame()
         {
+            //Если игра была поставлена на паузу - убираем паузу.
+            if (lbl_pause.Visible)
+                PauseGame();
+
             lbl_gameOver.Visible = false;
             gameTimer.Start();
             
             score = 0;
             snake = new Snake(pb_GameField.Size.Width / settings.GetSquareSize / 2, pb_GameField.Size.Height / settings.GetSquareSize / 2);
+            for (int i = 1; i < 4; i++)
+                snake.Increase();
+                //snake.Elements.Add(new SnakeGameElement(snake[0].X, snake[0].Y + i * settings.GetSquareSize));
             GenerateFood();
+            pb_GameField.Invalidate();
             lbl_score.Text = "Счет: " + score;
         }
 
@@ -134,6 +149,7 @@ namespace Snake_Game
         /// </summary>
         void PauseGame()
         {
+            //Если игра не остановлена.
             if (!lbl_gameOver.Visible)
             {
                 lbl_pause.Visible = !lbl_pause.Visible;
@@ -269,7 +285,7 @@ namespace Snake_Game
         /// <summary>
         /// Событие, возникающее при достижении змейкой еды.
         /// </summary>
-        private void Eat()
+        void Eat()
         {
             snake.Increase();
             score += settings.Points;
@@ -279,12 +295,22 @@ namespace Snake_Game
         }
 
         /// <summary>
+        /// Включить/отключить сетку на игровом поле.
+        /// </summary>
+        void ChangeGrid()
+        {
+            settings.Grid = !settings.Grid;
+            pb_GameField.Invalidate();
+        }
+
+        /// <summary>
         /// Событие, происходящее при тике таймера.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void gameTimer_Tick(object sender, EventArgs e)
         {
+            //Если игра не остановлена.
             if (!lbl_gameOver.Visible)
                 MovePlayer();
         }
@@ -294,7 +320,7 @@ namespace Snake_Game
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void pictureBox_Paint(object sender, PaintEventArgs e)
+        private void pb_GameField_Paint(object sender, PaintEventArgs e)
         {
             Graphics graphics = e.Graphics;
 
@@ -337,6 +363,12 @@ namespace Snake_Game
         }
 
         #region Взаимодействие с меню.
+        private void ClickOnMenuItem(object sender, EventArgs e)
+        {
+            if (!lbl_pause.Visible)
+                PauseGame();
+        }
+
         private void начатьЗановоToolStripMenuItem_Click(object sender, EventArgs e)
         {
             PauseGame();
@@ -347,6 +379,62 @@ namespace Snake_Game
         {
             if (MessageBox.Show("Вы уверены, что хотите выйти из игры?", "Выход", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 this.Dispose();            
+        }
+
+        private void ChangeSizeOfGameField_Click(object sender, EventArgs e)
+        {
+            //Если игра не остановлена.
+            if (!lbl_gameOver.Visible)
+            {
+                //Ставим игру на паузу.
+                if (!lbl_pause.Visible)
+                    PauseGame();
+
+                if (MessageBox.Show("Для изменения размера поля необходимо начать игру сначала. Вы уверены?", "Изменение размер поля", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    switch (sender.ToString())
+                    {
+                        case "Маленькое":
+                            settings.Size = 1;
+                            break;
+                        case "Среднее":
+                            settings.Size = 2;
+                            break;
+                        case "Большое":
+                            settings.Size = 3;
+                            break;
+                    }
+                }
+                gameTimer.Stop();
+                lbl_gameOver.Text = "Чтобы начать игру," +
+                                    "\nнажмите \"" + settings.Controls.RestartKey.ToString() + "\"";
+                lbl_gameOver.Visible = true;
+                lbl_pause.Visible = false;
+                snake = null;
+
+                pb_GameField.Invalidate();
+            }
+            else
+            {
+                switch (sender.ToString())
+                {
+                    case "Маленькое":
+                        settings.Size = 1;
+                        break;
+                    case "Среднее":
+                        settings.Size = 2;
+                        break;
+                    case "Большое":
+                        settings.Size = 3;
+                        break;
+                }
+                pb_GameField.Invalidate();
+            }
+        }
+
+        private void вклвыклСеткуToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ChangeGrid();
         }
         #endregion
         #endregion

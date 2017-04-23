@@ -21,7 +21,7 @@ namespace SnakeLibrary
         /// <summary>
         /// Коллекция элементов змейки.
         /// </summary>
-        public List<SnakeGameElement> elements;
+        List<SnakeGameElement> elements;
         /// <summary>
         /// Свойство, возвращающее коллекцию элементов змейки.
         /// </summary>
@@ -75,7 +75,7 @@ namespace SnakeLibrary
         }
 
         /// <summary>
-        /// Создает новый объект класса <see cref="Snake"/> с заданными координатами головы змейки и направлением (по умолчанию - вниз).
+        /// Создает новый объект класса <see cref="Snake"/> с заданными координатами головы змейки, и направлением (по умолчанию - вниз).
         /// </summary>
         /// /// <param name="head_X">Координата X головы змейки.</param>
         /// <param name="head_Y">Координата Y головы змейки.</param>
