@@ -52,6 +52,8 @@
             this.lbl_controlsHead = new System.Windows.Forms.Label();
             this.lbl_params = new System.Windows.Forms.Label();
             this.lbl_controls = new System.Windows.Forms.Label();
+            this.lbl_name = new System.Windows.Forms.Label();
+            this.рекордыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_GameField)).BeginInit();
             this.SuspendLayout();
@@ -72,6 +74,7 @@
             // 
             this.играToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.начатьЗановоToolStripMenuItem,
+            this.рекордыToolStripMenuItem,
             this.выходToolStripMenuItem});
             this.играToolStripMenuItem.Name = "играToolStripMenuItem";
             this.играToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
@@ -90,6 +93,7 @@
             this.выходToolStripMenuItem.Name = "выходToolStripMenuItem";
             this.выходToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.выходToolStripMenuItem.Text = "Выход";
+            this.выходToolStripMenuItem.Click += new System.EventHandler(this.выходToolStripMenuItem_Click);
             // 
             // настройкиToolStripMenuItem
             // 
@@ -174,54 +178,64 @@
             // 
             // pb_GameField
             // 
+            this.pb_GameField.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pb_GameField.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(200)))), ((int)(((byte)(120)))));
             this.pb_GameField.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pb_GameField.Location = new System.Drawing.Point(15, 41);
+            this.pb_GameField.MinimumSize = new System.Drawing.Size(516, 548);
             this.pb_GameField.Name = "pb_GameField";
-            this.pb_GameField.Size = new System.Drawing.Size(516, 516);
+            this.pb_GameField.Size = new System.Drawing.Size(516, 548);
             this.pb_GameField.TabIndex = 1;
             this.pb_GameField.TabStop = false;
             this.pb_GameField.Paint += new System.Windows.Forms.PaintEventHandler(this.pb_GameField_Paint);
             // 
             // lbl_score
             // 
+            this.lbl_score.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_score.AutoSize = true;
             this.lbl_score.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbl_score.Location = new System.Drawing.Point(533, 41);
+            this.lbl_score.Location = new System.Drawing.Point(533, 66);
             this.lbl_score.Name = "lbl_score";
-            this.lbl_score.Size = new System.Drawing.Size(91, 25);
+            this.lbl_score.Size = new System.Drawing.Size(78, 25);
             this.lbl_score.TabIndex = 6;
-            this.lbl_score.Text = "Счет: 0";
+            this.lbl_score.Text = "Счет: ";
             // 
             // lbl_gameOver
             // 
+            this.lbl_gameOver.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_gameOver.AutoSize = true;
-            this.lbl_gameOver.BackColor = System.Drawing.Color.Silver;
+            this.lbl_gameOver.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.lbl_gameOver.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lbl_gameOver.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbl_gameOver.Location = new System.Drawing.Point(533, 66);
+            this.lbl_gameOver.Location = new System.Drawing.Point(533, 95);
             this.lbl_gameOver.Name = "lbl_gameOver";
-            this.lbl_gameOver.Size = new System.Drawing.Size(113, 25);
+            this.lbl_gameOver.Size = new System.Drawing.Size(115, 27);
             this.lbl_gameOver.TabIndex = 8;
             this.lbl_gameOver.Text = "game over";
             this.lbl_gameOver.Visible = false;
             // 
             // lbl_pause
             // 
+            this.lbl_pause.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_pause.AutoSize = true;
-            this.lbl_pause.BackColor = System.Drawing.Color.Silver;
+            this.lbl_pause.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.lbl_pause.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lbl_pause.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbl_pause.Location = new System.Drawing.Point(533, 66);
+            this.lbl_pause.Location = new System.Drawing.Point(532, 95);
             this.lbl_pause.Name = "lbl_pause";
-            this.lbl_pause.Size = new System.Drawing.Size(142, 25);
+            this.lbl_pause.Size = new System.Drawing.Size(144, 27);
             this.lbl_pause.TabIndex = 9;
             this.lbl_pause.Text = "game paused";
             this.lbl_pause.Visible = false;
             // 
             // lbl_paramsHead
             // 
+            this.lbl_paramsHead.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_paramsHead.AutoSize = true;
             this.lbl_paramsHead.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbl_paramsHead.Location = new System.Drawing.Point(532, 180);
+            this.lbl_paramsHead.Location = new System.Drawing.Point(532, 212);
             this.lbl_paramsHead.Name = "lbl_paramsHead";
             this.lbl_paramsHead.Size = new System.Drawing.Size(143, 25);
             this.lbl_paramsHead.TabIndex = 10;
@@ -229,9 +243,10 @@
             // 
             // lbl_controlsHead
             // 
+            this.lbl_controlsHead.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_controlsHead.AutoSize = true;
             this.lbl_controlsHead.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbl_controlsHead.Location = new System.Drawing.Point(532, 315);
+            this.lbl_controlsHead.Location = new System.Drawing.Point(532, 347);
             this.lbl_controlsHead.Name = "lbl_controlsHead";
             this.lbl_controlsHead.Size = new System.Drawing.Size(149, 25);
             this.lbl_controlsHead.TabIndex = 11;
@@ -239,23 +254,46 @@
             // 
             // lbl_params
             // 
+            this.lbl_params.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_params.AutoSize = true;
+            this.lbl_params.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.lbl_params.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lbl_params.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbl_params.Location = new System.Drawing.Point(534, 205);
+            this.lbl_params.Location = new System.Drawing.Point(534, 237);
             this.lbl_params.Name = "lbl_params";
-            this.lbl_params.Size = new System.Drawing.Size(112, 24);
+            this.lbl_params.Size = new System.Drawing.Size(114, 26);
             this.lbl_params.TabIndex = 12;
             this.lbl_params.Text = "Параметры";
             // 
             // lbl_controls
             // 
+            this.lbl_controls.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lbl_controls.AutoSize = true;
+            this.lbl_controls.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.lbl_controls.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lbl_controls.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbl_controls.Location = new System.Drawing.Point(534, 340);
+            this.lbl_controls.Location = new System.Drawing.Point(534, 372);
             this.lbl_controls.Name = "lbl_controls";
-            this.lbl_controls.Size = new System.Drawing.Size(119, 24);
+            this.lbl_controls.Size = new System.Drawing.Size(121, 26);
             this.lbl_controls.TabIndex = 13;
             this.lbl_controls.Text = "Управление";
+            // 
+            // lbl_name
+            // 
+            this.lbl_name.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl_name.AutoSize = true;
+            this.lbl_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbl_name.Location = new System.Drawing.Point(533, 41);
+            this.lbl_name.Name = "lbl_name";
+            this.lbl_name.Size = new System.Drawing.Size(89, 25);
+            this.lbl_name.TabIndex = 14;
+            this.lbl_name.Text = "Игрок: ";
+            // 
+            // рекордыToolStripMenuItem
+            // 
+            this.рекордыToolStripMenuItem.Name = "рекордыToolStripMenuItem";
+            this.рекордыToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.рекордыToolStripMenuItem.Text = "Рекорды";
             // 
             // GameForm
             // 
@@ -263,6 +301,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(800, 600);
+            this.Controls.Add(this.lbl_name);
             this.Controls.Add(this.lbl_controls);
             this.Controls.Add(this.lbl_params);
             this.Controls.Add(this.lbl_controlsHead);
@@ -273,7 +312,6 @@
             this.Controls.Add(this.pb_GameField);
             this.Controls.Add(this.menuStrip);
             this.MainMenuStrip = this.menuStrip;
-            this.MaximumSize = new System.Drawing.Size(816, 639);
             this.MinimumSize = new System.Drawing.Size(816, 639);
             this.Name = "GameForm";
             this.Text = "Snake";
@@ -311,6 +349,8 @@
         private System.Windows.Forms.ToolStripMenuItem помощьToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem правилаToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem оПриложенииToolStripMenuItem;
+        private System.Windows.Forms.Label lbl_name;
+        private System.Windows.Forms.ToolStripMenuItem рекордыToolStripMenuItem;
     }
 }
 
