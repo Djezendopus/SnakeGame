@@ -385,6 +385,7 @@ namespace Snake_Game
             {
                 settings.PlayerName = (string)tmp;
                 lbl_params.Text = settings.ToString();
+                lbl_name.Text = settings.PlayerName;
                 tmp = null;
             }
         }
