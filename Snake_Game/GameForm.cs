@@ -443,7 +443,7 @@ namespace Snake_Game
                 }
             }
             pb_GameField.Invalidate();
-            lbl_params = settings.ToString();
+            lbl_params.Text = settings.ToString();
         }
 
         private void вклвыклСеткуToolStripMenuItem_Click(object sender, EventArgs e)
