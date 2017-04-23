@@ -426,8 +426,6 @@ namespace Snake_Game
                 lbl_gameOver.Visible = true;
                 lbl_pause.Visible = false;
                 snake = null;
-
-                pb_GameField.Invalidate();
             }
             else
             {
@@ -443,8 +441,9 @@ namespace Snake_Game
                         settings.Size = 3;
                         break;
                 }
-                pb_GameField.Invalidate();
             }
+            pb_GameField.Invalidate();
+            lbl_params = settings.ToString();
         }
 
         private void вклвыклСеткуToolStripMenuItem_Click(object sender, EventArgs e)
