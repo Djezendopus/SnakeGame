@@ -15,6 +15,11 @@ namespace Snake_Game
     {
         #region Поля и свойства.
         /// <summary>
+        /// Имя игрока.
+        /// </summary>
+        public string PlayerName { get; set; }
+
+        /// <summary>
         /// Установки клавиш управления для игры.
         /// </summary>
         GameControls controls;
@@ -30,15 +35,7 @@ namespace Snake_Game
         /// <summary>
         /// Логическое значение, нужно ли отрисовывать сетку на игровой зоне
         /// </summary>
-        bool grid;
-        /// <summary>
-        /// Свойство, возвращающее/задающее значение необходимости отрисовывать сетку на игровой зоне.
-        /// </summary>
-        public bool Grid
-        {
-            get { return grid; }
-            set { grid = value; }
-        }
+        public bool Grid { get; set; }
 
         /// <summary>
         /// Размер стороны квадрата сетки игровой зоны в пикселях.
@@ -104,7 +101,7 @@ namespace Snake_Game
                 if (value >= 1 && value <= 10)
                 {
                     speed = value * 4;
-                    points = Speed * 10;
+                    Points = Speed * 10;
                 }
                 else
                     throw new ArgumentOutOfRangeException("Значение скорости должно находится в пределах от 1 до 10");
@@ -119,15 +116,7 @@ namespace Snake_Game
         /// <summary>
         /// Количество очков за одну съеденную еду.
         /// </summary>
-        int points;
-        /// <summary>
-        /// Свойство, возвращающее/задающее значение параметра <see cref="points"/>.
-        /// </summary>
-        public int Points
-        {
-            get { return points; }
-            set { points = value; }
-        }
+        public int Points { get; internal set; }
         #endregion
 
         #region Конструкторы.
@@ -136,6 +125,7 @@ namespace Snake_Game
         /// </summary>
         public Settings()
         {
+            PlayerName = "Player";
             Grid = false;
             Size = 2;
             Speed = 5;            

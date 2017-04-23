@@ -1,4 +1,6 @@
-﻿namespace Snake_Game
+﻿using System.Windows.Forms;
+
+namespace Snake_Game
 {
     partial class InputNameForm
     {
@@ -28,72 +30,73 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label_input = new System.Windows.Forms.Label();
-            this.button_OK = new System.Windows.Forms.Button();
-            this.button_cancel = new System.Windows.Forms.Button();
-            this.textBox = new System.Windows.Forms.TextBox();
+            this.components = new System.ComponentModel.Container();
+            this.btn_OK = new System.Windows.Forms.Button();
+            this.label = new System.Windows.Forms.Label();
+            this.tBox_Name = new System.Windows.Forms.TextBox();
+            this.toolTip_tBox_Name = new System.Windows.Forms.ToolTip(this.components);
+            this.btn_Cancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // label_input
+            // btn_OK
             // 
-            this.label_input.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label_input.AutoSize = true;
-            this.label_input.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label_input.Location = new System.Drawing.Point(12, 9);
-            this.label_input.Name = "label_input";
-            this.label_input.Size = new System.Drawing.Size(94, 16);
-            this.label_input.TabIndex = 0;
-            this.label_input.Text = "Введите имя:";
+            this.btn_OK.Location = new System.Drawing.Point(33, 62);
+            this.btn_OK.Name = "btn_OK";
+            this.btn_OK.Size = new System.Drawing.Size(75, 23);
+            this.btn_OK.TabIndex = 2;
+            this.btn_OK.Text = "Принять";
+            this.btn_OK.UseVisualStyleBackColor = true;
+            this.btn_OK.Click += new System.EventHandler(this.btn_Confrime_Click);
             // 
-            // button_OK
+            // label
             // 
-            this.button_OK.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.button_OK.Location = new System.Drawing.Point(49, 60);
-            this.button_OK.Name = "button_OK";
-            this.button_OK.Size = new System.Drawing.Size(75, 23);
-            this.button_OK.TabIndex = 1;
-            this.button_OK.Text = "ОК";
-            this.button_OK.UseVisualStyleBackColor = true;
-            this.button_OK.Click += new System.EventHandler(this.button_OK_Click);
+            this.label.AutoSize = true;
+            this.label.BackColor = System.Drawing.Color.Transparent;
+            this.label.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label.ForeColor = System.Drawing.Color.Black;
+            this.label.Location = new System.Drawing.Point(6, 9);
+            this.label.Name = "label";
+            this.label.Size = new System.Drawing.Size(150, 24);
+            this.label.TabIndex = 0;
+            this.label.Text = "Введите имя:";
+            this.label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // button_cancel
+            // tBox_Name
             // 
-            this.button_cancel.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.button_cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.button_cancel.Location = new System.Drawing.Point(130, 60);
-            this.button_cancel.Name = "button_cancel";
-            this.button_cancel.Size = new System.Drawing.Size(75, 23);
-            this.button_cancel.TabIndex = 2;
-            this.button_cancel.Text = "Выход";
-            this.button_cancel.UseVisualStyleBackColor = true;
-            this.button_cancel.Click += new System.EventHandler(this.button_cancel_Click);
+            this.tBox_Name.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.tBox_Name.Location = new System.Drawing.Point(10, 36);
+            this.tBox_Name.MaxLength = 14;
+            this.tBox_Name.Name = "tBox_Name";
+            this.tBox_Name.Size = new System.Drawing.Size(199, 20);
+            this.tBox_Name.TabIndex = 1;
+            this.tBox_Name.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tBox_Name_KeyDown);
             // 
-            // textBox
+            // btn_Cancel
             // 
-            this.textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox.Location = new System.Drawing.Point(12, 28);
-            this.textBox.MaxLength = 20;
-            this.textBox.Name = "textBox";
-            this.textBox.Size = new System.Drawing.Size(230, 20);
-            this.textBox.TabIndex = 3;
+            this.btn_Cancel.Location = new System.Drawing.Point(114, 62);
+            this.btn_Cancel.Name = "btn_Cancel";
+            this.btn_Cancel.Size = new System.Drawing.Size(75, 23);
+            this.btn_Cancel.TabIndex = 3;
+            this.btn_Cancel.Text = "Отмена";
+            this.btn_Cancel.UseVisualStyleBackColor = true;
+            this.btn_Cancel.Click += new System.EventHandler(this.btn_Cancel_Click);
             // 
             // InputNameForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(254, 91);
-            this.Controls.Add(this.textBox);
-            this.Controls.Add(this.button_cancel);
-            this.Controls.Add(this.button_OK);
-            this.Controls.Add(this.label_input);
+            this.BackColor = System.Drawing.Color.Silver;
+            this.ClientSize = new System.Drawing.Size(223, 92);
+            this.ControlBox = false;
+            this.Controls.Add(this.btn_Cancel);
+            this.Controls.Add(this.tBox_Name);
+            this.Controls.Add(this.label);
+            this.Controls.Add(this.btn_OK);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "InputNameForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Ввести имя";
+            this.Text = "Ввод имени";
+            this.Load += new System.EventHandler(this.fName_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -101,9 +104,10 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label_input;
-        private System.Windows.Forms.Button button_OK;
-        private System.Windows.Forms.Button button_cancel;
-        private System.Windows.Forms.TextBox textBox;
+        private System.Windows.Forms.Button btn_OK;
+        private System.Windows.Forms.Label label;
+        private System.Windows.Forms.TextBox tBox_Name;
+        private System.Windows.Forms.ToolTip toolTip_tBox_Name;
+        private Button btn_Cancel;
     }
 }

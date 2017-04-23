@@ -5,53 +5,48 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Snake_Game
 {
-    /// <summary>
-    /// Форма для ввода значения и его передачи в родительскую форму.
-    /// </summary>
     public partial class InputNameForm : Form
     {
-        #region Конструкторы.
-        /// <summary>
-        /// Конструктор формы ввода с заданным заголовком и выбором метода ввода.
-        /// </summary>
+
         public InputNameForm()
         {
             InitializeComponent();
         }
-        #endregion
 
-        #region Методы.
-        /// <summary>
-        /// Передача значения в родительскую форму с использованием выбранного метода ввода.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void button_OK_Click(object sender, EventArgs e)
+        private void fName_Load(object sender, EventArgs e)
+        {
+            toolTip_tBox_Name.SetToolTip(tBox_Name, "Введите ваше имя\n(не более 16 символов)");
+            toolTip_tBox_Name.IsBalloon = true;
+        }
+
+        private void btn_Confrime_Click(object sender, EventArgs e)
         {
             GameForm main = this.Owner as GameForm;
             if (main != null)
-                //main.playerName = textBox.Text;
-            this.DialogResult = DialogResult.OK;
+                if (tBox_Name.Text.Replace(" ", "") == "")
+                    MessageBox.Show("Поле имени пустое, введите имя!", "Ошибка ввода имени", MessageBoxButtons.OK);
+                else
+                {
+                    this.DialogResult = DialogResult.OK;
+                    main.tmp = tBox_Name.Text;
+                    this.Dispose();
+                }
+        }
+
+        private void btn_Cancel_Click(object sender, EventArgs e)
+        {
             this.Dispose();
         }
 
-        /// <summary>
-        /// Отмена передачи значения.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void button_cancel_Click(object sender, EventArgs e)
+        private void tBox_Name_KeyDown(object sender, KeyEventArgs e)
         {
-            if (MessageBox.Show("Вы уверены, что хотите выйти из игры?", "Выход", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
-                this.DialogResult = DialogResult.Cancel;
-                this.Dispose();
-            }
+            if (e.KeyCode == Keys.Enter)
+                btn_Confrime_Click(sender, e);
         }
-        #endregion
     }
 }

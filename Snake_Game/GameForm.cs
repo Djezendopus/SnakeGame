@@ -17,6 +17,11 @@ namespace Snake_Game
     {
         #region Поля и свойства.
         /// <summary>
+        /// Переменная для передачи данных из дочерних форм.
+        /// </summary>
+        public object tmp;
+
+        /// <summary>
         /// Змейка.
         /// </summary>
         Snake snake;
@@ -24,10 +29,6 @@ namespace Snake_Game
         /// Еда змейки.
         /// </summary>
         SnakeGameElement food;
-        /// <summary>
-        /// Имя игрока.
-        /// </summary>
-        string name = "Player";
         /// <summary>
         /// Текущий счет игры.
         /// </summary>
@@ -59,21 +60,18 @@ namespace Snake_Game
             }
             else
                 settings = new Settings();
-            gameTimer.Interval = 1000 / settings.GetSnakeSpeed;
-            lbl_name.Text = "Имя: " + name;
-            lbl_score.Text = "Счет: " + score;
 
+            gameTimer.Interval = 1000 / settings.GetSnakeSpeed;
+
+            lbl_name.Text = settings.PlayerName;
+            lbl_score.Text = "" + score;
+            lbl_params.Text = settings.ToString();
+            lbl_controls.Text = settings.Controls.ToString();
             lbl_pause.Text = "Игра приостановлена." +
                              "\nНажмите \"" + settings.Controls.PauseKey.ToString() + "\"" +
                              "\nчтобы продолжить.";
-            lbl_pause.Visible = false;
-
-            lbl_params.Text = settings.ToString();
-            lbl_controls.Text = settings.Controls.ToString();
-
             lbl_gameOver.Text = "Чтобы начать игру," +
                                 "\nнажмите \"" + settings.Controls.RestartKey.ToString() + "\"";
-            lbl_gameOver.Visible = true;
         }
         #endregion
 
@@ -133,12 +131,6 @@ namespace Snake_Game
         /// </summary>
         void RestartGame()
         {
-            if (name == null)
-            {
-                name = "name";
-                lbl_name.Text = "Игрок: " + name;
-            }
-
             //Если игра была поставлена на паузу - убираем паузу.
             if (lbl_pause.Visible)
                 PauseGame();
@@ -153,7 +145,7 @@ namespace Snake_Game
             //snake.Elements.Add(new SnakeGameElement(snake[0].X, snake[0].Y + i * settings.GetSquareSize));
             GenerateFood();
             pb_GameField.Invalidate();
-            lbl_score.Text = "Счет: " + score;
+            lbl_score.Text = "" + score;
         }
 
         /// <summary>
@@ -247,7 +239,7 @@ namespace Snake_Game
             //Проверяем, не заполнила ли змейка все игровое поле.
             if (snake.Count == (pb_GameField.Size.Width / settings.GetSquareSize) * (pb_GameField.Size.Height / settings.GetSquareSize))
             {
-                lbl_score.Text = "Счет: " + score;
+                lbl_score.Text = "" + score;
                 lbl_gameOver.Text = "Поздравляем! Вы прошли игру!" +
                 "\nЧтобы начать заново," +
                 "\nнажмите \"" + settings.Controls.RestartKey.ToString() + "\".";
@@ -301,7 +293,7 @@ namespace Snake_Game
         {
             snake.Increase();
             score += settings.Points;
-            lbl_score.Text = "Счет: " + score;
+            lbl_score.Text = "" + score;
 
             GenerateFood();
         }
@@ -383,6 +375,18 @@ namespace Snake_Game
         {
             PauseGame();
             RestartGame();
+        }
+
+        private void сменитьИмяToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            InputNameForm inputName = new InputNameForm();
+            inputName.Owner = this;
+            if (inputName.ShowDialog() == DialogResult.OK)
+            {
+                settings.PlayerName = (string)tmp;
+                lbl_params.Text = settings.ToString();
+                tmp = null;
+            }
         }
 
         private void выйтиToolStripMenuItem_Click(object sender, EventArgs e)
