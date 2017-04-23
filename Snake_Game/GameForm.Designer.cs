@@ -41,7 +41,6 @@
             this.среднееToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.большоеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.вклвыклСеткуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.управлениеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.помощьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.правилаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.оПриложенииToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -116,8 +115,7 @@
             // 
             this.настройкиToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.размерПоляToolStripMenuItem,
-            this.вклвыклСеткуToolStripMenuItem,
-            this.управлениеToolStripMenuItem});
+            this.вклвыклСеткуToolStripMenuItem});
             this.настройкиToolStripMenuItem.Name = "настройкиToolStripMenuItem";
             this.настройкиToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
             this.настройкиToolStripMenuItem.Text = "Настройки";
@@ -160,13 +158,6 @@
             this.вклвыклСеткуToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
             this.вклвыклСеткуToolStripMenuItem.Text = "Вкл/выкл сетку";
             this.вклвыклСеткуToolStripMenuItem.Click += new System.EventHandler(this.вклвыклСеткуToolStripMenuItem_Click);
-            // 
-            // управлениеToolStripMenuItem
-            // 
-            this.управлениеToolStripMenuItem.Name = "управлениеToolStripMenuItem";
-            this.управлениеToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
-            this.управлениеToolStripMenuItem.Text = "Управление";
-            this.управлениеToolStripMenuItem.Click += new System.EventHandler(this.управлениеToolStripMenuItem_Click);
             // 
             // помощьToolStripMenuItem
             // 
@@ -225,7 +216,7 @@
             this.lbl_gameOver.BackColor = System.Drawing.SystemColors.ControlLight;
             this.lbl_gameOver.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lbl_gameOver.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbl_gameOver.Location = new System.Drawing.Point(535, 91);
+            this.lbl_gameOver.Location = new System.Drawing.Point(534, 110);
             this.lbl_gameOver.Name = "lbl_gameOver";
             this.lbl_gameOver.Size = new System.Drawing.Size(115, 27);
             this.lbl_gameOver.TabIndex = 0;
@@ -238,7 +229,7 @@
             this.lbl_pause.BackColor = System.Drawing.SystemColors.ControlLight;
             this.lbl_pause.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lbl_pause.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbl_pause.Location = new System.Drawing.Point(534, 91);
+            this.lbl_pause.Location = new System.Drawing.Point(534, 110);
             this.lbl_pause.Name = "lbl_pause";
             this.lbl_pause.Size = new System.Drawing.Size(144, 27);
             this.lbl_pause.TabIndex = 0;
@@ -250,7 +241,7 @@
             this.lbl_paramsHead.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbl_paramsHead.AutoSize = true;
             this.lbl_paramsHead.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbl_paramsHead.Location = new System.Drawing.Point(532, 215);
+            this.lbl_paramsHead.Location = new System.Drawing.Point(532, 205);
             this.lbl_paramsHead.Name = "lbl_paramsHead";
             this.lbl_paramsHead.Size = new System.Drawing.Size(143, 25);
             this.lbl_paramsHead.TabIndex = 0;
@@ -274,7 +265,7 @@
             this.lbl_params.BackColor = System.Drawing.SystemColors.ControlLight;
             this.lbl_params.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lbl_params.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbl_params.Location = new System.Drawing.Point(534, 240);
+            this.lbl_params.Location = new System.Drawing.Point(534, 230);
             this.lbl_params.Name = "lbl_params";
             this.lbl_params.Size = new System.Drawing.Size(114, 26);
             this.lbl_params.TabIndex = 0;
@@ -303,6 +294,7 @@
             this.lbl_nameHead.Size = new System.Drawing.Size(70, 25);
             this.lbl_nameHead.TabIndex = 0;
             this.lbl_nameHead.Text = "Имя: ";
+            this.lbl_nameHead.Click += new System.EventHandler(this.сменитьИмяToolStripMenuItem_Click);
             // 
             // lbl_name
             // 
@@ -380,7 +372,6 @@
         private System.Windows.Forms.ToolStripMenuItem маленькоеToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem среднееToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem большоеToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem управлениеToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem помощьToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem правилаToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem оПриложенииToolStripMenuItem;

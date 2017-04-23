@@ -389,6 +389,7 @@ namespace Snake_Game
                 lbl_name.Text = settings.PlayerName;
                 tmp = null;
             }
+            this.Focus();
         }
 
         private void выходToolStripMenuItem_Click(object sender, EventArgs e)
@@ -448,14 +449,8 @@ namespace Snake_Game
         {
             ChangeGrid();
         }
-
-        private void управлениеToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            GameControlsForm gameControls = new GameControlsForm(settings.Controls);
-            gameControls.Owner = this;
-            gameControls.ShowDialog();
-        }
         #endregion
+
         #endregion
     }
 }
