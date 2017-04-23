@@ -36,13 +36,13 @@
             this.рекордыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.выходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.настройкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.сброситьНастройкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.размерПоляToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.маленькоеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.среднееToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.большоеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.вклвыклСеткуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.помощьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.правилаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.оПриложенииToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gameTimer = new System.Windows.Forms.Timer(this.components);
             this.pb_GameField = new System.Windows.Forms.PictureBox();
@@ -56,7 +56,6 @@
             this.lbl_nameHead = new System.Windows.Forms.Label();
             this.lbl_name = new System.Windows.Forms.Label();
             this.lbl_score = new System.Windows.Forms.Label();
-            this.сброситьНастройкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_GameField)).BeginInit();
             this.SuspendLayout();
@@ -124,6 +123,13 @@
             this.настройкиToolStripMenuItem.Text = "Настройки";
             this.настройкиToolStripMenuItem.Click += new System.EventHandler(this.ClickOnMenuItem);
             // 
+            // сброситьНастройкиToolStripMenuItem
+            // 
+            this.сброситьНастройкиToolStripMenuItem.Name = "сброситьНастройкиToolStripMenuItem";
+            this.сброситьНастройкиToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.сброситьНастройкиToolStripMenuItem.Text = "Сбросить настройки";
+            this.сброситьНастройкиToolStripMenuItem.Click += new System.EventHandler(this.сброситьНастройкиToolStripMenuItem_Click);
+            // 
             // размерПоляToolStripMenuItem
             // 
             this.размерПоляToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -131,7 +137,7 @@
             this.среднееToolStripMenuItem,
             this.большоеToolStripMenuItem});
             this.размерПоляToolStripMenuItem.Name = "размерПоляToolStripMenuItem";
-            this.размерПоляToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.размерПоляToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
             this.размерПоляToolStripMenuItem.Text = "Размер поля";
             // 
             // маленькоеToolStripMenuItem
@@ -158,31 +164,25 @@
             // вклвыклСеткуToolStripMenuItem
             // 
             this.вклвыклСеткуToolStripMenuItem.Name = "вклвыклСеткуToolStripMenuItem";
-            this.вклвыклСеткуToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.вклвыклСеткуToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
             this.вклвыклСеткуToolStripMenuItem.Text = "Вкл/выкл сетку";
             this.вклвыклСеткуToolStripMenuItem.Click += new System.EventHandler(this.вклвыклСеткуToolStripMenuItem_Click);
             // 
             // помощьToolStripMenuItem
             // 
             this.помощьToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.правилаToolStripMenuItem,
             this.оПриложенииToolStripMenuItem});
             this.помощьToolStripMenuItem.Name = "помощьToolStripMenuItem";
             this.помощьToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
             this.помощьToolStripMenuItem.Text = "Помощь";
             this.помощьToolStripMenuItem.Click += new System.EventHandler(this.ClickOnMenuItem);
             // 
-            // правилаToolStripMenuItem
-            // 
-            this.правилаToolStripMenuItem.Name = "правилаToolStripMenuItem";
-            this.правилаToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
-            this.правилаToolStripMenuItem.Text = "Правила";
-            // 
             // оПриложенииToolStripMenuItem
             // 
             this.оПриложенииToolStripMenuItem.Name = "оПриложенииToolStripMenuItem";
             this.оПриложенииToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.оПриложенииToolStripMenuItem.Text = "О приложении";
+            this.оПриложенииToolStripMenuItem.Click += new System.EventHandler(this.оПриложенииToolStripMenuItem_Click);
             // 
             // gameTimer
             // 
@@ -323,13 +323,6 @@
             this.lbl_score.TabIndex = 0;
             this.lbl_score.Text = "0";
             // 
-            // сброситьНастройкиToolStripMenuItem
-            // 
-            this.сброситьНастройкиToolStripMenuItem.Name = "сброситьНастройкиToolStripMenuItem";
-            this.сброситьНастройкиToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
-            this.сброситьНастройкиToolStripMenuItem.Text = "Сбросить настройки";
-            this.сброситьНастройкиToolStripMenuItem.Click += new System.EventHandler(this.сброситьНастройкиToolStripMenuItem_Click);
-            // 
             // GameForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -384,7 +377,6 @@
         private System.Windows.Forms.ToolStripMenuItem среднееToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem большоеToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem помощьToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem правилаToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem оПриложенииToolStripMenuItem;
         private System.Windows.Forms.Label lbl_nameHead;
         private System.Windows.Forms.ToolStripMenuItem рекордыToolStripMenuItem;

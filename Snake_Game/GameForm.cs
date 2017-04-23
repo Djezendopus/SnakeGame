@@ -492,6 +492,11 @@ namespace Snake_Game
         }
 
         #region Взаимодействие с меню.
+        /// <summary>
+        /// Поставить игру на паузу при открытии меню.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ClickOnMenuItem(object sender, EventArgs e)
         {
             //Если игра не на паузе - ставим на паузу.
@@ -499,17 +504,31 @@ namespace Snake_Game
                 PauseGame();
         }
 
+        /// <summary>
+        /// Событие при нажатии кнопки "Игра - Начать заново".
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void начатьЗановоToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            PauseGame();
             RestartGame();
         }
 
+        /// <summary>
+        /// Событие при нажатии кнопки "Игра - Сменить имя".
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void сменитьИмяToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ChangeName();
         }
 
+        /// <summary>
+        /// Событие при нажатии кнопки "Игра - Рекорды".
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void рекордыToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ScoreTableForm scoreTable = new ScoreTableForm();
@@ -517,11 +536,21 @@ namespace Snake_Game
             scoreTable.ShowDialog();
         }
 
+        /// <summary>
+        /// Событие при нажатии кнопки "Игра - Выход".
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void выходToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        /// <summary>
+        /// Событие при нажатии кнопки "Настройки - Сбросить настройки".
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void сброситьНастройкиToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Вы уверены, что хотите сбросить настройки игры?", "Сбросить настройки", MessageBoxButtons.YesNo) == DialogResult.Yes)
@@ -533,6 +562,11 @@ namespace Snake_Game
             }
         }
 
+        /// <summary>
+        /// Событие при нажатии кнопки в меню "Настройки - Размер поля".
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ChangeSizeOfGameField_Click(object sender, EventArgs e)
         {
             //Если игра не остановлена.
@@ -580,9 +614,25 @@ namespace Snake_Game
             lbl_params.Text = settings.ToString();
         }
 
+        /// <summary>
+        /// Событие при нажатии кнопки "Настройки - Вкл/выкл сетку".
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void вклвыклСеткуToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ChangeGrid();
+        }
+        
+        /// <summary>
+        /// Событие при нажатии кнопки "Помощь - О приложении".
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void оПриложенииToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowTextForm showText = new ShowTextForm(Properties.Resources.README);
+            showText.ShowDialog();
         }
         #endregion
 

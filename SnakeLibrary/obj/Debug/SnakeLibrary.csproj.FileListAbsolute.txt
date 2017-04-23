@@ -3,3 +3,8 @@ D:\Учеба\Универ\Программирование\ExactPro\Snake_Game\
 D:\Учеба\Универ\Программирование\ExactPro\Snake_Game\SnakeLibrary\obj\Debug\SnakeLibrary.dll
 D:\Учеба\Универ\Программирование\ExactPro\Snake_Game\SnakeLibrary\obj\Debug\SnakeLibrary.pdb
 D:\Учеба\Универ\Программирование\ExactPro\Snake_Game\SnakeLibrary\obj\Debug\SnakeLibrary.csprojResolveAssemblyReference.cache
+D:\Учеба\ExactPro\Snake_Game\SnakeLibrary\bin\Debug\SnakeLibrary.dll
+D:\Учеба\ExactPro\Snake_Game\SnakeLibrary\bin\Debug\SnakeLibrary.pdb
+D:\Учеба\ExactPro\Snake_Game\SnakeLibrary\obj\Debug\SnakeLibrary.csprojResolveAssemblyReference.cache
+D:\Учеба\ExactPro\Snake_Game\SnakeLibrary\obj\Debug\SnakeLibrary.dll
+D:\Учеба\ExactPro\Snake_Game\SnakeLibrary\obj\Debug\SnakeLibrary.pdb

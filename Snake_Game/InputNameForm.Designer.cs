@@ -96,7 +96,6 @@ namespace Snake_Game
             this.Name = "InputNameForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Ввод имени";
-            this.Load += new System.EventHandler(this.fName_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -10,20 +10,27 @@ using System.Windows.Forms;
 
 namespace Snake_Game
 {
+    /// <summary>
+    /// Форма для ввода имени игрока.
+    /// </summary>
     public partial class InputNameForm : Form
     {
-
+        #region Конструкторы.
+        /// <summary>
+        /// Загрузка формы при запуске.
+        /// </summary>
         public InputNameForm()
         {
             InitializeComponent();
         }
+        #endregion
 
-        private void fName_Load(object sender, EventArgs e)
-        {
-            toolTip_tBox_Name.SetToolTip(tBox_Name, "Введите ваше имя\n(не более 16 символов)");
-            toolTip_tBox_Name.IsBalloon = true;
-        }
-
+        #region Методы.
+        /// <summary>
+        /// Событие при нажатии кнопки "Принять".
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_Confrime_Click(object sender, EventArgs e)
         {
             GameForm main = this.Owner as GameForm;
@@ -38,15 +45,26 @@ namespace Snake_Game
                 }
         }
 
+        /// <summary>
+        /// Событие при нажатии кнопки "Отмена".
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_Cancel_Click(object sender, EventArgs e)
         {
             this.Dispose();
         }
 
+        /// <summary>
+        /// Событие при нажатии клавиши клавиатуры.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void tBox_Name_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
                 btn_Confrime_Click(sender, e);
         }
+        #endregion
     }
 }
