@@ -154,9 +154,11 @@ namespace Snake_Game
 
             score = 0;
             snake = new Snake(pb_GameField.Size.Width / settings.GetSquareSize / 2, pb_GameField.Size.Height / settings.GetSquareSize / 2);
-            for (int i = 1; i < 4; i++)
-                snake.Increase();
-                //snake.Elements.Add(new SnakeGameElement(snake[0].X, snake[0].Y + i * settings.GetSquareSize));
+            for (int i = 1; i < 5; i++)
+            {
+                snake.Elements.Add(new SnakeGameElement(snake[snake.Count - 1].X, snake[snake.Count - 1].Y - 1));
+                pb_GameField.Invalidate();
+            }
             GenerateFood();
             pb_GameField.Invalidate();
             lbl_score.Text = "" + score;
