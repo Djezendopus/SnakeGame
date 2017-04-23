@@ -145,6 +145,7 @@ namespace Snake_Game
         /// </summary>
         void RestartGame()
         {
+            nextDirectionKey = settings.Controls.Down.Key;
             //Если игра была поставлена на паузу - убираем паузу.
             if (lbl_pause.Visible)
                 PauseGame();
@@ -159,6 +160,7 @@ namespace Snake_Game
                 snake.Elements.Add(new SnakeGameElement(snake[snake.Count - 1].X, snake[snake.Count - 1].Y - 1));
                 pb_GameField.Invalidate();
             }
+
             GenerateFood();
             pb_GameField.Invalidate();
             lbl_score.Text = "" + score;
@@ -271,31 +273,22 @@ namespace Snake_Game
                 Random rnd = new Random();
 
                 //Задаем координаты еды, проверяя, не попадает ли еда на саму змейку.
-                bool X_ok, Y_ok;
+                bool coords_ok;
                 do
                 {
-                    X_ok = true;
+                    coords_ok = true;
+                    
                     X = rnd.Next(0, maxX);
-                    foreach (var v in snake.Elements)
-                        if (X == v.X)
-                        {
-                            X_ok = false;
-                            break;
-                        }
-                }
-                while (!X_ok);
-                do
-                {
-                    Y_ok = true;
                     Y = rnd.Next(0, maxY);
+
                     foreach (var v in snake.Elements)
-                        if (Y == v.X)
+                        if (X == v.X && Y == v.Y)
                         {
-                            X_ok = false;
+                            coords_ok = false;
                             break;
                         }
                 }
-                while (!Y_ok);
+                while (!coords_ok);
 
                 //Создаем новую еду.
                 food = new SnakeGameElement(X, Y);
