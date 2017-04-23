@@ -54,9 +54,18 @@ namespace Snake_Game
             if (File.Exists("settings.xml"))
             {
                 XmlSerializer serializer = new XmlSerializer(typeof(Settings));
-                FileStream fStream = new FileStream("settings.xml", FileMode.Open);
-                settings = (Settings)serializer.Deserialize(fStream);
-                fStream.Close();
+                FileStream stream = new FileStream("settings.xml", FileMode.Open);
+                try
+                {
+                    settings = (Settings)serializer.Deserialize(stream);
+                    stream.Close();
+                }
+                catch (Exception ex)
+                {
+                    stream.Close();
+                    MessageBox.Show("Ошибка загркузки файла настроек:\n\"" + ex.Message + "\"\nВосстановлены настройки по умолчанию.");
+                    settings = new Settings();
+                }
             }
             else
                 settings = new Settings();
@@ -389,13 +398,11 @@ namespace Snake_Game
                 lbl_name.Text = settings.PlayerName;
                 tmp = null;
             }
-            this.Focus();
         }
 
         private void выходToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Вы уверены, что хотите выйти из игры?", "Выход", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                this.Dispose();
+            this.Close();
         }
 
         private void ChangeSizeOfGameField_Click(object sender, EventArgs e)
@@ -451,6 +458,24 @@ namespace Snake_Game
         }
         #endregion
 
+        /// <summary>
+        /// Событие перед закрытием формы.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void GameForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("Вы уверены, что хотите выйти из игры?", "Выход", MessageBoxButtons.YesNo) == DialogResult.No)
+                e.Cancel = true;
+            else
+            {
+                //Сохраняем текущие настройки
+                XmlSerializer serializer = new XmlSerializer(typeof(Settings));
+                FileStream stream = new FileStream("settings.xml", FileMode.OpenOrCreate);
+                serializer.Serialize(stream, settings);
+                stream.Close();
+            }
+        }
         #endregion
     }
 }

@@ -96,7 +96,7 @@ namespace Snake_Game
         public int Speed
         {
             get { return speed / 4; }
-            internal set
+            set
             {
                 if (value >= 1 && value <= 10)
                 {
@@ -116,7 +116,7 @@ namespace Snake_Game
         /// <summary>
         /// Количество очков за одну съеденную еду.
         /// </summary>
-        public int Points { get; internal set; }
+        public int Points { get; set; }
         #endregion
 
         #region Конструкторы.

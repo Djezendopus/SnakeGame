@@ -10,6 +10,7 @@ namespace Snake_Game
     /// <summary>
     /// Структура, описывающая игровое действие и его управляющую клавишу.
     /// </summary>
+    [Serializable]
     public struct GameAction
     {
         #region Поля и свойства.
