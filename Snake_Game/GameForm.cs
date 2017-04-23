@@ -305,6 +305,7 @@ namespace Snake_Game
         {
             settings.Grid = !settings.Grid;
             pb_GameField.Invalidate();
+            lbl_params.Text = settings.ToString();
         }
 
         /// <summary>
@@ -401,10 +402,6 @@ namespace Snake_Game
             //Если игра не остановлена.
             if (!lbl_gameOver.Visible)
             {
-                //Если игра не на паузе - ставим игру на паузу.
-                if (!lbl_pause.Visible)
-                    PauseGame();
-
                 if (MessageBox.Show("Для изменения размера поля необходимо начать игру сначала. Вы уверены?", "Изменение размер поля", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     switch (sender.ToString())
@@ -419,13 +416,14 @@ namespace Snake_Game
                             settings.Size = 3;
                             break;
                     }
+
+                    gameTimer.Stop();
+                    lbl_gameOver.Text = "Чтобы начать игру," +
+                                        "\nнажмите \"" + settings.Controls.RestartKey.ToString() + "\"";
+                    lbl_gameOver.Visible = true;
+                    lbl_pause.Visible = false;
+                    snake = null;
                 }
-                gameTimer.Stop();
-                lbl_gameOver.Text = "Чтобы начать игру," +
-                                    "\nнажмите \"" + settings.Controls.RestartKey.ToString() + "\"";
-                lbl_gameOver.Visible = true;
-                lbl_pause.Visible = false;
-                snake = null;
             }
             else
             {

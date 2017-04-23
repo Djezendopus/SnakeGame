@@ -195,9 +195,7 @@
             // 
             // pb_GameField
             // 
-            this.pb_GameField.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pb_GameField.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pb_GameField.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(200)))), ((int)(((byte)(120)))));
             this.pb_GameField.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pb_GameField.Location = new System.Drawing.Point(15, 41);
@@ -210,7 +208,7 @@
             // 
             // lbl_scoreHead
             // 
-            this.lbl_scoreHead.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl_scoreHead.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbl_scoreHead.AutoSize = true;
             this.lbl_scoreHead.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lbl_scoreHead.Location = new System.Drawing.Point(532, 66);
@@ -221,7 +219,7 @@
             // 
             // lbl_gameOver
             // 
-            this.lbl_gameOver.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl_gameOver.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbl_gameOver.AutoSize = true;
             this.lbl_gameOver.BackColor = System.Drawing.SystemColors.ControlLight;
             this.lbl_gameOver.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -234,7 +232,7 @@
             // 
             // lbl_pause
             // 
-            this.lbl_pause.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl_pause.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbl_pause.AutoSize = true;
             this.lbl_pause.BackColor = System.Drawing.SystemColors.ControlLight;
             this.lbl_pause.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -248,7 +246,7 @@
             // 
             // lbl_paramsHead
             // 
-            this.lbl_paramsHead.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl_paramsHead.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbl_paramsHead.AutoSize = true;
             this.lbl_paramsHead.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lbl_paramsHead.Location = new System.Drawing.Point(532, 215);
@@ -259,7 +257,7 @@
             // 
             // lbl_controlsHead
             // 
-            this.lbl_controlsHead.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl_controlsHead.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbl_controlsHead.AutoSize = true;
             this.lbl_controlsHead.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lbl_controlsHead.Location = new System.Drawing.Point(532, 346);
@@ -270,7 +268,7 @@
             // 
             // lbl_params
             // 
-            this.lbl_params.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl_params.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbl_params.AutoSize = true;
             this.lbl_params.BackColor = System.Drawing.SystemColors.ControlLight;
             this.lbl_params.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -283,7 +281,7 @@
             // 
             // lbl_controls
             // 
-            this.lbl_controls.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl_controls.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbl_controls.AutoSize = true;
             this.lbl_controls.BackColor = System.Drawing.SystemColors.ControlLight;
             this.lbl_controls.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -296,7 +294,7 @@
             // 
             // lbl_nameHead
             // 
-            this.lbl_nameHead.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl_nameHead.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbl_nameHead.AutoSize = true;
             this.lbl_nameHead.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lbl_nameHead.Location = new System.Drawing.Point(532, 41);
@@ -307,7 +305,7 @@
             // 
             // lbl_name
             // 
-            this.lbl_name.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl_name.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbl_name.AutoSize = true;
             this.lbl_name.BackColor = System.Drawing.Color.Silver;
             this.lbl_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -319,7 +317,7 @@
             // 
             // lbl_score
             // 
-            this.lbl_score.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbl_score.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbl_score.AutoSize = true;
             this.lbl_score.BackColor = System.Drawing.Color.Silver;
             this.lbl_score.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
