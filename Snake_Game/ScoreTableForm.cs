@@ -17,8 +17,17 @@ namespace Snake_Game
     /// </summary>
     public partial class ScoreTableForm : Form
     {
+        #region Поля и свойства.
+        /// <summary>
+        /// Коллецкия рекордов игроков.
+        /// </summary>
         List<string[]> scores;
+        #endregion
 
+        #region Конструкторы.
+        /// <summary>
+        /// Загрузка формы игры при запуске.
+        /// </summary>
         public ScoreTableForm()
         {
             InitializeComponent();
@@ -67,7 +76,9 @@ namespace Snake_Game
 
             CreateTable(scores);
         }
+        #endregion
 
+        #region Методы.
         /// <summary>
         /// Заполнение таблицы рекордов на основе файла рекордов.
         /// </summary>
@@ -104,5 +115,6 @@ namespace Snake_Game
             lbl_name10.Text = scores[9][0] ?? "";
             lbl_score10.Text = scores[9][1] ?? "";
         }
+        #endregion
     }
 }

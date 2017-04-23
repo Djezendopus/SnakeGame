@@ -16,6 +16,7 @@ namespace SnakeLibrary
         /// Координата X.
         /// </summary>
         public int X { get; set; }
+
         /// <summary>
         /// Координата Y.
         /// </summary>

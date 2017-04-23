@@ -22,15 +22,7 @@ namespace Snake_Game
         /// <summary>
         /// Установки клавиш управления для игры.
         /// </summary>
-        GameControls controls;
-        /// <summary>
-        /// Свойство, возвращающее/задающее установки клавиш управления для игры.
-        /// </summary>
-        public GameControls Controls
-        {
-            get { return controls; }
-            set { controls = value; }
-        }
+        public GameControls Controls { get; set; }
 
         /// <summary>
         /// Логическое значение, нужно ли отрисовывать сетку на игровой зоне
@@ -129,7 +121,7 @@ namespace Snake_Game
             Grid = false;
             Size = 2;
             Speed = 5;            
-            controls = new GameControls();
+            Controls = new GameControls();
         }
         #endregion
 
