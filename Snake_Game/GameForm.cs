@@ -63,12 +63,17 @@ namespace Snake_Game
                 catch (Exception ex)
                 {
                     stream.Close();
+                    File.Delete("settings.xml");
                     MessageBox.Show("Ошибка загркузки файла настроек:\n\"" + ex.Message + "\"\nВосстановлены настройки по умолчанию.");
                     settings = new Settings();
+                    ChangeName();
                 }
             }
             else
+            {
                 settings = new Settings();
+                ChangeName();
+            }
 
             gameTimer.Interval = 1000 / settings.GetSnakeSpeed;
 
@@ -318,6 +323,21 @@ namespace Snake_Game
         }
 
         /// <summary>
+        /// Сменить имя игрока.
+        /// </summary>
+        void ChangeName()
+        {
+            InputNameForm inputName = new InputNameForm();
+            inputName.Owner = this;
+            if (inputName.ShowDialog() == DialogResult.OK)
+            {
+                settings.PlayerName = (string)tmp;
+                lbl_name.Text = settings.PlayerName;
+                tmp = null;
+            }
+        }
+
+        /// <summary>
         /// Событие, происходящее при тике таймера.
         /// </summary>
         /// <param name="sender"></param>
@@ -389,20 +409,23 @@ namespace Snake_Game
 
         private void сменитьИмяToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            InputNameForm inputName = new InputNameForm();
-            inputName.Owner = this;
-            if (inputName.ShowDialog() == DialogResult.OK)
-            {
-                settings.PlayerName = (string)tmp;
-                lbl_params.Text = settings.ToString();
-                lbl_name.Text = settings.PlayerName;
-                tmp = null;
-            }
+            ChangeName();
         }
 
         private void выходToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void сброситьНастройкиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Вы уверены, что хотите сбросить настройки игры?", "Сбросить настройки", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                settings = new Settings();
+                lbl_name.Text = settings.PlayerName;
+                lbl_params.Text = settings.ToString();
+                pb_GameField.Invalidate();
+            }
         }
 
         private void ChangeSizeOfGameField_Click(object sender, EventArgs e)

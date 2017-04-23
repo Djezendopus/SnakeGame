@@ -56,6 +56,7 @@
             this.lbl_nameHead = new System.Windows.Forms.Label();
             this.lbl_name = new System.Windows.Forms.Label();
             this.lbl_score = new System.Windows.Forms.Label();
+            this.сброситьНастройкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_GameField)).BeginInit();
             this.SuspendLayout();
@@ -114,6 +115,7 @@
             // настройкиToolStripMenuItem
             // 
             this.настройкиToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.сброситьНастройкиToolStripMenuItem,
             this.размерПоляToolStripMenuItem,
             this.вклвыклСеткуToolStripMenuItem});
             this.настройкиToolStripMenuItem.Name = "настройкиToolStripMenuItem";
@@ -320,6 +322,13 @@
             this.lbl_score.TabIndex = 0;
             this.lbl_score.Text = "0";
             // 
+            // сброситьНастройкиToolStripMenuItem
+            // 
+            this.сброситьНастройкиToolStripMenuItem.Name = "сброситьНастройкиToolStripMenuItem";
+            this.сброситьНастройкиToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.сброситьНастройкиToolStripMenuItem.Text = "Сбросить настройки";
+            this.сброситьНастройкиToolStripMenuItem.Click += new System.EventHandler(this.сброситьНастройкиToolStripMenuItem_Click);
+            // 
             // GameForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -381,6 +390,7 @@
         private System.Windows.Forms.Label lbl_name;
         private System.Windows.Forms.ToolStripMenuItem сменитьИмяToolStripMenuItem;
         private System.Windows.Forms.Label lbl_score;
+        private System.Windows.Forms.ToolStripMenuItem сброситьНастройкиToolStripMenuItem;
     }
 }
 
